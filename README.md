@@ -71,6 +71,22 @@ Got an idea? Make a PR!
 
 <img src="https://github.com/tecosaur/LaTeX-Utilities/raw/master/demo-media/zotero-integration.gif" height="100px">
 
+This part of functionality is from [vscode-zotero-latex](https://github.com/bnavetta/vscode-zotero-latex).
+The animation only shows the `\autocite` command insertion functionality, the mechanism utilizes some API URL from `Better BibTex extension`.
+If you don't want to see your inserted citation produce `citation undefined` warning in the latex compile procedure and don't produce the expected citation in the pdf after compilation, you can utilize the mechanism further.
+Here's a toy tex file.
+```latex
+\documentclass[a4paper, 12pt, oneside]{book}
+\usepackage[style = numeric-comp]{biblatex}
+\addbibresource[location=remote]{http://127.0.0.1:23119/better-bibtex/export/collection?/1/WNEMKQJ8.biblatex}
+\addbibresource{test.bib}
+\begin{document}
+\autocite{prajwalLipSyncExpert2020}
+\end{document}
+```
+You can either export your bibliography entries from zotero collection/library into `test.bib` in advance or use your dynamic reference from zotero (see instruction in Better BibTex's [pull export](https://retorque.re/zotero-better-bibtex/exporting/pull/index.html)).
+But notice that the mechanism makes you far away from `citation undefined` doesn't come from this extension itself.
+
 <br/>
 <br/>
 
